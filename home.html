@@ -4,10 +4,12 @@
   <head>
     <meta charset='UTF-8'>
     <title>Service Aid</title>
-    <link rel='stylesheet' href='normalize.css'>
-    <link rel='stylesheet' href='font-style.css'>
-    <link rel='stylesheet' href='style.css'>
-    <!-- <script src="jquery-3.1.1.js"></script> -->
+    <link rel='stylesheet' href='./style/normalize.css'>
+    <link rel='stylesheet' href='./style/font-style.css'>
+    <link rel='stylesheet' href='./style/style.css'>
+    <script src='./js/newServiceOrderModal.js'>
+
+    </script>
   </head>
 
   <body>
@@ -16,7 +18,7 @@
     </header>
 
     <nav class="side-navigator">
-      <button class="actionButton" type="button" name="newOSButton" onclick="myFunction()">NOVA ORDEM DE SERVIÇO</button>
+      <button class="actionButton" type="button" name="newOSButton" onclick="showNewServiceOrderModal()">NOVA ORDEM DE SERVIÇO</button>
     </nav>
 
     <section>
@@ -43,7 +45,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br/> <br/>
       </div>
 
-      <div class="modal" id="serviceOrderForm">
+      <div class="modal" id="newServiceOrderForm">
         <h3>NOVA ORDEM DE SERVIÇO</h3>
 
         <input name="companyName" placeholder="Fast IT"> <br/> <br/>
@@ -61,19 +63,8 @@
 
         <button class="actionButton" type="button" name="saveOSButton" width=20px >ENVIAR</button>
       </div>
-      <div class="overlay" id="overlay" onclick="hideModal()"></div>
+      <div class="overlay" id="overlay" onclick="hideNewServiceOrderModal()"></div>
     </section>
-    <script>
-      function myFunction() {
-        document.getElementById('serviceOrderForm').style.display="inline";
-        document.getElementById('overlay').style.display="inline";
-      }
-      function hideModal() {
-        var x = event.keyCode;
-        document.getElementById('serviceOrderForm').style.display="none";
-        document.getElementById('overlay').style.display="none";
-      }
-    </script>
   </body>
 
 </html>

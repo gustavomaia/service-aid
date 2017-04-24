@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset='UTF-8'>
+    <title>Service Aid</title>
+    <link rel='stylesheet' href='style/normalize.css'>
+    <link rel='stylesheet' href='style/font-style.css'>
+    <link rel='stylesheet' href='style/style.css'>
+  </head>
+
+  <body>
+    <form class="login" action="home.html" method="post" onsubmit="loginController.login(event)">
+      <input type="text" id="login" name="username" placeholder="seu login">
+      <input type="password" id="password" name="password" placeholder="sua senha">
+      <button type="submit" name="button">aiooo</button>
+    </form>
+
+    <script src='js/login.js'></script>
+    <script>
+      let loginController = new LoginController();
+    </script>
+  </body>
+</html>

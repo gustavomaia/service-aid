@@ -23,18 +23,20 @@ class LoginController {
     let loginParams = 'username=' + login + '&password=' + password;
 
     var request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:8080/login", true);
+    request.open("POST", "http://localhost:8081/login", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.getResponseHeader("Set-Cookie");
-    // request.withCredentials = true;
+    // request.getResponseHeader("Set-Cookie");
+    request.withCredentials = true;
     request.onload = function (e) {
       if (request.readyState === 4) {
         if (request.status === 200) {
-          console.log(request.responseText);
-          window.location.href = 'file:///Users/gustavomaia/development/service-aid/home.html';
+
+          // console.log(request.responseText);
+          // request.getResponseHeader("Set-Cookie");
+          window.location.href = 'http://localhost:8080/';
         } else {
           console.error(request.statusText);
-          window.location.href = 'file:///Users/gustavomaia/development/service-aid/login.html';
+          // window.location.href = 'http://localhost:8080/login.html';
         }
       }
     };

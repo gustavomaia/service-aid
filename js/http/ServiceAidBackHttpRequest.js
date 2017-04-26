@@ -3,11 +3,16 @@ class ServiceAidBackHttpRequest {
     this.httpRequest = new HttpRequest('http://localhost:8081');
   }
 
-  getApplication() {
-    return this.httpRequest.doGet('/application');
-  }
-
   checkSession() {
     return this.httpRequest.doGet('/session-check')
+  }
+
+  doLogin(credentials) {
+    let data = {
+      content: credentials,
+      contentType: "application/x-www-form-urlencoded"
+    }
+
+    return this.httpRequest.doPost('/login', data)
   }
 }

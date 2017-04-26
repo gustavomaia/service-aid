@@ -3,22 +3,24 @@
   <head>
     <meta charset='UTF-8'>
     <title>Service Aid</title>
-    <script src='js/loggedUser.js'></script>
     <link rel='stylesheet' href='style/normalize.css'>
     <link rel='stylesheet' href='style/font-style.css'>
     <link rel='stylesheet' href='style/style.css'>
+
+    <script src='js/http/HttpRequest.js'></script>
+    <script src='js/http/ServiceAidBackHttpRequest.js'></script>
+    <script src='js/controller/LoginController.js'></script>
+    <script>
+      let loginController = new LoginController();
+    </script>
   </head>
 
   <body>
     <form class="login" action="home.html" method="post" onsubmit="loginController.login(event)">
       <input type="text" id="login" name="username" placeholder="seu login">
       <input type="password" id="password" name="password" placeholder="sua senha">
-      <button type="submit" name="button">aiooo</button>
+      <button type="submit" name="button">Logar</button>
     </form>
 
-    <script src='js/login.js'></script>
-    <script>
-      let loginController = new LoginController();
-    </script>
   </body>
 </html>

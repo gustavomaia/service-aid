@@ -29,6 +29,7 @@ class HttpRequest {
 
     return new Promise((resolve, reject) => {
       let request = this._createHttpRequest(method, path);
+      request.setRequestHeader("Content-type", data.contentType);
       request.onload = function() {
         if (request.status === 200)
           resolve(request.response);
@@ -38,7 +39,7 @@ class HttpRequest {
       request.onerror = function() {
         reject(Error(`Error while performing ${METHOD} on ${PATH}`));
       };
-      request.send(data);
+      request.send(data.content);
     });
   }
 

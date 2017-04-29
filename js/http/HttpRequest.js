@@ -17,7 +17,7 @@ class HttpRequest {
           reject(request.status);
       }
       request.onerror = function() {
-        reject(Error(`Error while performing ${METHOD} on ${PATH}`));
+        reject(Error(`Error while performing ${method} on ${path}`));
       };
       request.send();
     });
@@ -37,7 +37,7 @@ class HttpRequest {
           reject(request.status);
       }
       request.onerror = function() {
-        reject(Error(`Error while performing ${METHOD} on ${PATH}`));
+        reject(Error(`Error while performing ${method} on ${path}`));
       };
       request.send(data.content);
     });

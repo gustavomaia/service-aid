@@ -15,4 +15,9 @@ class ServiceAidBackHttpRequest {
 
     return this.httpRequest.doPost('/login', data)
   }
+
+  getServiceOrders(status) {
+    return this.httpRequest.doGet(`/service-order/${status}`)
+  }
+
 }

@@ -35,6 +35,21 @@ section {
   min-width: 500px;
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+    border: 1px solid #FAF9FB;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #FAF9FB;
+}
+
 .side-navigator {
   background-color: #230F27;
   top: 60px;
@@ -77,8 +92,12 @@ section {
 .box {
   padding: 0;
   margin: 0;
-  width: 100px;
+  width: 120px;
   display: inline-block;
+}
+
+.larger-box {
+  width: 150px;
 }
 
 .box a {
@@ -93,16 +112,17 @@ section {
   padding-bottom: 8px;
   border-bottom: 2px solid transparent;
   transition: 0.5s ease;
+  white-space: nowrap;
 }
 
 .box a:hover {
   border-bottom: 2px solid #877BA5;
-  width: 90px;
+  width: 100%;
 }
 
 .box .current {
   border-bottom: 2px solid #877BA5;
-  width: 90px;
+  width: 100%;
 }
 
 .main-container {

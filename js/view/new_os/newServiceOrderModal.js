@@ -4,7 +4,6 @@ function showNewServiceOrderModal() {
 }
 
 function hideNewServiceOrderModal() {
-  var x = event.keyCode;
   document.getElementById('newServiceOrderForm').style.display="none";
   document.getElementById('overlay').style.display="none";
 }

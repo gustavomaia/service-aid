@@ -23,10 +23,10 @@
     </nav>
 
     <section>
-      <nav class="main-navigator">
-        <div class="box"> <a href="#" class="current" >PENDENTE</a> </div>
-        <div class="box"> <a href="#">EM ANDAMENTO</a> </div>
-        <div class="box"> <a href="#">FINALIZADAS</a> </div>
+      <nav class="main-navigator" id='filterBox'>
+        <div class="box"> <a id="inProgressFilter" class="currentFilter" >EM ANDAMENTO</a> </div>
+        <div class="box"> <a id="pendingFilter">PENDENTE</a> </div>
+        <div class="box"> <a id="finishedFilter">FINALIZADAS</a> </div>
       </nav>
 
       <div class="main-container" id="mainContainer"></div>
@@ -57,7 +57,6 @@
     <script src='js/controller/ServiceOrderController.js'></script>
     <script>
       let serviceOrderIssuerView = new ServiceOrderIssuerView();
-      serviceOrderIssuerView.loadPendingServiceOrders();
     </script>
   </body>
 

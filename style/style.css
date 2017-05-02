@@ -41,9 +41,14 @@ table {
 }
 
 td, th {
-    border: 1px solid #FAF9FB;
-    text-align: left;
-    padding: 8px;
+  border: 1px solid #FAF9FB;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:hover td {
+  background-color: #F8F8F8;
+  cursor: pointer;
 }
 
 tr:nth-child(even) {
@@ -113,6 +118,7 @@ tr:nth-child(even) {
   border-bottom: 2px solid transparent;
   transition: 0.5s ease;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .box a:hover {
@@ -120,7 +126,7 @@ tr:nth-child(even) {
   width: 100%;
 }
 
-.box .current {
+.box .currentFilter {
   border-bottom: 2px solid #877BA5;
   width: 100%;
 }
@@ -166,7 +172,7 @@ tr:nth-child(even) {
 .modal textarea {
   font-size: 12px;
   font-family: quickSand;
-  font-color: #9B9B9B;
+  color: #9B9B9B;
   text-indent: 10px;
   padding-top: 10px;
   background-color: #F0EFF1;
@@ -196,5 +202,4 @@ tr:nth-child(even) {
 
 .modal, .overlay {
   display: none;
-  tab-in
 }

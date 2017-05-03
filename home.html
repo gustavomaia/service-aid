@@ -19,7 +19,9 @@
     </header>
 
     <nav class="side-navigator">
-      <button class="actionButton" type="button" name="newOSButton" onclick="showNewServiceOrderModal()">NOVA ORDEM DE SERVIÇO</button>
+      <button class="actionButton" type="button" name="newOSButton" 
+        onclick="serviceOrderRegisterView.showNewServiceOrderModal()">NOVA ORDEM DE SERVIÇO
+      </button>
     </nav>
 
     <section>
@@ -34,11 +36,7 @@
       <div class="modal" id="newServiceOrderForm">
         <h3>NOVA ORDEM DE SERVIÇO</h3>
 
-        <input name="companyName" placeholder="Fast IT"> <br/> <br/>
-        <select name="requester" autofocus="true">
-          <option value="defaultRequester" disabled selected hidden>Selecione o solicitante</option>
-          <option value="other">Tico</option>
-        </select> <br/><br/>
+        <input name="companyName" placeholder="Fast IT" disabled> <br/> <br/>
         <select name="category">
           <option value="defaultCategory" disabled selected hidden>Selectione a categoria</option>
           <option value="other">Impressora</option>
@@ -49,14 +47,15 @@
 
         <button class="actionButton" type="button" name="saveOSButton" width=20px >ENVIAR</button>
       </div>
-      <div class="overlay" id="overlay" onclick="hideNewServiceOrderModal()"></div>
+      <div class="overlay" id="overlay" onclick="serviceOrderRegisterView.hideNewServiceOrderModal()"></div>
     </section>
 
-    <script src='js/view/new_os/newServiceOrderModal.js'></script>
+    <script src='js/view/ServiceOrderRegisterView.js'></script>
     <script src='js/view/ServiceOrderIssuerView.js'></script>
     <script src='js/controller/ServiceOrderController.js'></script>
     <script>
       let serviceOrderIssuerView = new ServiceOrderIssuerView();
+      let serviceOrderRegisterView = new ServiceOrderRegisterView();
     </script>
   </body>
 

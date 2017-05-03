@@ -2,10 +2,16 @@ class ServiceOrderIssuerView {
   constructor() {
     this._getServiceOrders = new ServiceOrderController().getIssuerPendingServiceOrders();
 
-    let mainContainer = document.getElementById('mainContainer');
-    this.serviceOrderTable = document.createElement('table');
-    mainContainer.appendChild(this.serviceOrderTable);
+    this._setupTable();
+    this._setupFilters();
+  }
 
+  _setupTable() {
+    this.serviceOrderTable = document.createElement('table');
+    document.getElementById('mainContainer').appendChild(this.serviceOrderTable);
+  }
+
+  _setupFilters() {
     this._allFiltersArray = new Array();
     for (let filter of document.getElementById('filterBox').getElementsByTagName('a')) {
       filter.addEventListener('click', () => {this._changeCurrentFilter(filter)}, true);

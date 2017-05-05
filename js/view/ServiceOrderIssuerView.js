@@ -2,70 +2,19 @@ class ServiceOrderIssuerView {
 
   show() {
     this._getServiceOrders = new ServiceOrderController().getIssuerPendingServiceOrders();
-
-    this._setupTable();
+    this.mainContainerView = new MainContainerView();
     this._setupFilters();
   }
 
-  _setupTable() {
-    this.serviceOrderTable = document.createElement('table');
-    document.getElementById('mainContainer').appendChild(this.serviceOrderTable);
-  }
-
   _setupFilters() {
-    // this._allFiltersArray = new Array();
-    // for (let filter of document.getElementById('filterBox').getElementsByTagName('a')) {
-    //   filter.addEventListener('click', () => {this._changeCurrentFilter(filter)}, true);
-    //   this._allFiltersArray.push(filter);
-    // }
-
-    // this._allFiltersArray
-    //   .find(filter => {return filter.id == 'inProgressFilter'})
-    //   .addEventListener('click', () => this._loadInProgressOrders(), false);
-    // this._allFiltersArray
-    //   .find(filter => {return filter.id == 'pendingFilter'})
-    //   .addEventListener('click', () => this._loadWaitingManagementOrders(), false);
-    // this._allFiltersArray
-    //   .find(filter => {return filter.id == 'finishedFilter'})
-    //   .addEventListener('click', () => this._loadFinishedOrders(), false);
-
-      let filterBox = document.getElementById('filterBox');
-
-      let inProgressBoxFilter = document.createElement('div');
-      inProgressBoxFilter.className = 'box'
-      let waitingManagementBoxFilter = document.createElement('div');
-      waitingManagementBoxFilter.className = 'box'
-
-      let inProgressFilter = document.createElement('a');
-      inProgressFilter.className = 'currentFilter'
-      inProgressFilter.addEventListener('click', () => {this._changeCurrentFilter(inProgressFilter)}, true);
-      inProgressFilter.addEventListener('click', () => this._loadInProgressOrders(), false);
-      inProgressFilter.text = 'EM ANDAMENTO'
-      inProgressBoxFilter.appendChild(inProgressFilter)
-      filterBox.appendChild(inProgressBoxFilter);
-
-      let waitingManagementFilter = document.createElement('a');
-      waitingManagementFilter.addEventListener('click', () => {this._changeCurrentFilter(waitingManagementFilter)}, true);
-      waitingManagementFilter.addEventListener('click', () => this._loadWaitingManagementOrders(), false);
-      waitingManagementFilter.text = 'PENDENTE'
-      waitingManagementBoxFilter.appendChild(waitingManagementFilter);
-
-      filterBox.appendChild(waitingManagementBoxFilter);
-      this._allFiltersArray = new Array();
-      this._allFiltersArray.push(inProgressFilter);
-      this._allFiltersArray.push(waitingManagementFilter);
-  }
-
-  _changeCurrentFilter(selectedFilter) {
-    this.serviceOrderTable.innerHTML = '';
-    this._allFiltersArray
-      .find(filter => {return filter.className == 'currentFilter'})
-      .classList.remove('currentFilter');
-
-    selectedFilter.className = 'currentFilter';
+    this.mainContainerView.createCurrentFilter("EM ANDAMENTO")
+      .addEventListener('click', () => this._loadInProgressOrders(), false);
+    this.mainContainerView.createFilter("PENDENTE")
+      .addEventListener('click', () => this._loadWaitingManagementOrders(), false);
   }
 
   _loadInProgressOrders() {
+    console.log('teste');
   }
 
   _loadWaitingManagementOrders() {
@@ -89,7 +38,7 @@ class ServiceOrderIssuerView {
           serviceOrderTr.appendChild(localTd);
           serviceOrderTr.appendChild(createdAt);
 
-          this.serviceOrderTable.appendChild(serviceOrderTr);
+          this.mainContainerView.serviceOrderTable.appendChild(serviceOrderTr);
         }
     });
   }

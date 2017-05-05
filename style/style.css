@@ -64,6 +64,15 @@ tr:nth-child(even) {
   position: fixed;
 }
 
+.side-navigator a {
+  color: #FAF9FB;
+}
+
+.side-navigator a:hover {
+  cursor: pointer;
+}
+
+
 .side-navigator .actionButton {
   margin: 20px;
 }
@@ -99,10 +108,7 @@ tr:nth-child(even) {
   margin: 0;
   width: 120px;
   display: inline-block;
-}
-
-.larger-box {
-  width: 150px;
+  margin-right: 10px;
 }
 
 .box a {
@@ -111,7 +117,7 @@ tr:nth-child(even) {
   text-decoration: none;
   color: #7A777A;
   width: 0px;
-  text-align: center;
+  text-align: left;
   font-family: quickSand-medium;
   display: inline-block;
   padding-bottom: 8px;
@@ -123,11 +129,13 @@ tr:nth-child(even) {
 
 .box a:hover {
   border-bottom: 2px solid #877BA5;
+  text-align: center;
   width: 100%;
 }
 
 .box .currentFilter {
   border-bottom: 2px solid #877BA5;
+  text-align: center;
   width: 100%;
 }
 

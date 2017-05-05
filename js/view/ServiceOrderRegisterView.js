@@ -1,7 +1,10 @@
 class ServiceOrderRegisterView {
   constructor() {
     this._serviceOrderForm = document.getElementById('newServiceOrderForm');
-    this._overlay = document.getElementById('overlay');
+    this._newOrderServiceButton = document.getElementById('newOrderServiceButton');
+    this._newOrderServiceButton.addEventListener('click', () => this._showNewServiceOrderModal(), false);
+    this._overlay = document.getElementById('newServiceOrderOverlay');
+    this._overlay.addEventListener('click', () => this._hideNewServiceOrderModal(), false);
     this._companyNameInput = document.getElementById('companyNameInput');
     this._categorySelect = document.getElementById('categorySelect');
     this._placeInput = document.getElementById('placeInput');
@@ -40,12 +43,13 @@ class ServiceOrderRegisterView {
       })
   }
 
-  showNewServiceOrderModal() {
+  _showNewServiceOrderModal() {
+    console.log('teste');
     this._serviceOrderForm.style.display="inline";
     this._overlay.style.display="inline";
   }
 
-  hideNewServiceOrderModal() {
+  _hideNewServiceOrderModal() {
     this._serviceOrderForm.style.display="none";
     this._overlay.style.display="none";
   }

@@ -2,7 +2,7 @@
 <html lang='pt-BR'>
 
   <head>
-    <meta charset='UTF-8'>
+    <meta charset="UTF-8">
     <title>Service Aid</title>
     <link rel='stylesheet' href='style/normalize.css'>
     <link rel='stylesheet' href='style/font-style.css'>
@@ -10,7 +10,6 @@
 
     <script src='js/http/HttpRequest.js'></script>
     <script src='js/http/ServiceAidBackHttpRequest.js'></script>
-    <script src='js/checkSession.js'></script>
   </head>
 
   <body>
@@ -18,17 +17,18 @@
       <img src="images/logo.png" alt="Service Aid">
     </header>
 
-    <nav class="side-navigator">
-      <button class="actionButton" type="button"
-        onclick="serviceOrderRegisterView.showNewServiceOrderModal()">NOVA ORDEM DE SERVIÇO
-      </button>
+    <nav id="sideNavigator" class="side-navigator">
+      <button id="newOrderServiceButton" class="actionButton" type="button">NOVA ORDEM DE SERVIÇO</button>
     </nav>
 
     <section>
+      <div>
+        
+      </div>
       <nav class="main-navigator" id='filterBox'>
-        <div class="box"> <a id="inProgressFilter" class="currentFilter" >EM ANDAMENTO</a> </div>
+        <!--<div class="box"> <a id="inProgressFilter" class="currentFilter" >EM ANDAMENTO</a> </div>
         <div class="box"> <a id="pendingFilter">PENDENTE</a> </div>
-        <div class="box"> <a id="finishedFilter">FINALIZADAS</a> </div>
+        <div class="box"> <a id="finishedFilter">FINALIZADAS</a> </div>-->
       </nav>
 
       <div class="main-container" id="mainContainer"></div>
@@ -40,21 +40,24 @@
           <option value="" disabled selected>Selectione a categoria</option>
         </select> <br/><br/>
         <input id="placeInput" placeholder="Local" required> <br/> <br/>
-        <input id="contactPhoneInput" placeholder="Telefone para contato" data-mask="(00) 0000-0000" data-mask-selectonfocus="true"> <br/> <br/>
+        <!--<input id="contactPhoneInput" placeholder="Telefone para contato" data-mask="(00) 0000-0000" data-mask-selectonfocus="true"> <br/> <br/>-->
+        <input id="contactPhoneInput" placeholder="Telefone para contato" type="text" data-mask="(00) 0000-0000" data-mask-selectonfocus="true"> <br/> <br/>
         <textarea id="descriptionInput" placeholder="Descrição" ></textarea> <br/> <br/>
 
         <button class="actionButton" type="submit" width=20px >ENVIAR</button>
       </form>
-      <div class="overlay" id="overlay" onclick="serviceOrderRegisterView.hideNewServiceOrderModal()"></div>
+      <div class="overlay" id="newServiceOrderOverlay"  ></div>
     </section>
 
     <script src='js/view/ServiceOrderRegisterView.js'></script>
     <script src='js/view/ServiceOrderIssuerView.js'></script>
+    <script src='js/view/UserView.js'></script>
+    <script src='js/view/ServiceOrderManagerView.js'></script>
     <script src='js/controller/ServiceOrderController.js'></script>
+    <script src='js/controller/UserController.js'></script>
     <script src='js/controller/CompanyController.js'></script>
     <script>
-      let serviceOrderIssuerView = new ServiceOrderIssuerView();
-      let serviceOrderRegisterView = new ServiceOrderRegisterView();
+      new UserView().loadApplicationView();
     </script>
   </body>
 

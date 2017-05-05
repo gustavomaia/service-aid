@@ -3,6 +3,10 @@ class ServiceAidBackHttpRequest {
     this.httpRequest = new HttpRequest('http://localhost:8081');
   }
 
+  getUser() {
+    return this.httpRequest.doGet('/user');
+  }
+
   checkSession() {
     return this.httpRequest.doGet('/session-check')
   }

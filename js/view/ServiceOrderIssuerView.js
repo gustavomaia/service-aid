@@ -47,17 +47,17 @@ class ServiceOrderIssuerView {
         for(let waitingManagement of serviceOrders.waitingManagement) {
           let serviceOrderTr = document.createElement('tr');
 
-          let numberTd = document.createElement('td');
+          let codeTd = document.createElement('td');
           let descriptionTd = document.createElement('td');
           let localTd = document.createElement('td');
           let createdAt = document.createElement('td');
 
-          numberTd.textContent = waitingManagement.id;
+          codeTd.textContent = waitingManagement.code;
           descriptionTd.textContent = waitingManagement.description;
           localTd.textContent = waitingManagement.place;
           createdAt.textContent = waitingManagement.createdAt;
 
-          serviceOrderTr.appendChild(numberTd);
+          serviceOrderTr.appendChild(codeTd);
           serviceOrderTr.appendChild(descriptionTd);
           serviceOrderTr.appendChild(localTd);
           serviceOrderTr.appendChild(createdAt);

@@ -33,11 +33,13 @@ class HttpRequest {
       request.onload = function() {
         if (request.status === 200)
           resolve(request.response);
+        else if (request.status === 201)
+          resolve(request.response);
         else
           reject(request.status);
       }
       request.onerror = function() {
-        reject(Error(`Error while performing ${method} on ${path}`));
+        reject(Error(`Error while performing ${method} on ${path}.`));
       };
       request.send(data.content);
     });

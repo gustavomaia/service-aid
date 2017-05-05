@@ -9,4 +9,17 @@ class ServiceOrderController {
     });
   }
 
+  postNewServiceOrder(serviceOrder) {
+    return new Promise((resolve, reject) => {
+      new ServiceAidBackHttpRequest().postNewOS(serviceOrder)
+        .then(newServiceOrder => {
+          resolve(JSON.parse(newServiceOrder));
+        })
+        .catch(error => {
+          console.error(error);
+        })
+    })
+
+  }
+
 }

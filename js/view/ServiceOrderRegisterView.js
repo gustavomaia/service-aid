@@ -2,10 +2,42 @@ class ServiceOrderRegisterView {
   constructor() {
     this._serviceOrderForm = document.getElementById('newServiceOrderForm');
     this._overlay = document.getElementById('overlay');
+    this._companyNameInput = document.getElementById('companyNameInput');
+    this._categorySelect = document.getElementById('categorySelect');
+    this._placeInput = document.getElementById('placeInput');
+    this._contactPhoneInput = document.getElementById('contactPhoneInput');
+    this._descriptionInput = document.getElementById('descriptionInput');
 
-    // companyController = new CompanyController();
-    // this._getCompanyName = companyController.getName();
-    // this._getCompanyCategories = companyController.getCategories();
+    new CompanyController().getCompanyInfo().then(company => {
+      this._companyNameInput.placeholder = company.name;
+      company.categories.forEach(category => {
+        let categoryOption = document.createElement('option');
+        categoryOption.text = category.name;
+        categoryOption.value = category.id;
+        this._categorySelect.appendChild(categoryOption);
+      });
+    });
+  }
+
+  newOS(event) {
+    event.preventDefault();
+
+    let serviceOrder = {
+      categoryId: this._categorySelect.item(this._categorySelect.selectedIndex).value,
+      place: this._placeInput.value,
+      contactPhoneNumber: this._contactPhoneInput.value,
+      description: this._descriptionInput.value
+    }
+
+    new ServiceOrderController().postNewServiceOrder(serviceOrder)
+      .then(serviceOrder => {
+        console.log(serviceOrder)
+        this._serviceOrderForm.reset();
+        this.hideNewServiceOrderModal();
+      })
+      .catch(error => {
+        console.error(error);
+      })
   }
 
   showNewServiceOrderModal() {
@@ -18,4 +50,3 @@ class ServiceOrderRegisterView {
     this._overlay.style.display="none";
   }
 }
-

@@ -19,7 +19,7 @@
     </header>
 
     <nav class="side-navigator">
-      <button class="actionButton" type="button" name="newOSButton" 
+      <button class="actionButton" type="button"
         onclick="serviceOrderRegisterView.showNewServiceOrderModal()">NOVA ORDEM DE SERVIÇO
       </button>
     </nav>
@@ -33,26 +33,25 @@
 
       <div class="main-container" id="mainContainer"></div>
 
-      <div class="modal" id="newServiceOrderForm">
+      <form class="modal" id="newServiceOrderForm" onsubmit="serviceOrderRegisterView.newOS(event)" >
         <h3>NOVA ORDEM DE SERVIÇO</h3>
-
-        <input name="companyName" placeholder="Fast IT" disabled> <br/> <br/>
-        <select name="category">
-          <option value="defaultCategory" disabled selected hidden>Selectione a categoria</option>
-          <option value="other">Impressora</option>
+        <input id="companyNameInput" disabled> <br/> <br/>
+        <select id="categorySelect" title="Selecione uma categoria" required oninvalid="">
+          <option value="" disabled selected>Selectione a categoria</option>
         </select> <br/><br/>
-        <input name="place" placeholder="Local" > <br/> <br/>
-        <input name="contact" placeholder="Contato" data-mask="(00) 0000-0000" data-mask-selectonfocus="true"> <br/> <br/>
-        <textarea name="description" placeholder="Descrição" ></textarea> <br/> <br/>
+        <input id="placeInput" placeholder="Local" required> <br/> <br/>
+        <input id="contactPhoneInput" placeholder="Telefone para contato" data-mask="(00) 0000-0000" data-mask-selectonfocus="true"> <br/> <br/>
+        <textarea id="descriptionInput" placeholder="Descrição" ></textarea> <br/> <br/>
 
-        <button class="actionButton" type="button" name="saveOSButton" width=20px >ENVIAR</button>
-      </div>
+        <button class="actionButton" type="submit" width=20px >ENVIAR</button>
+      </form>
       <div class="overlay" id="overlay" onclick="serviceOrderRegisterView.hideNewServiceOrderModal()"></div>
     </section>
 
     <script src='js/view/ServiceOrderRegisterView.js'></script>
     <script src='js/view/ServiceOrderIssuerView.js'></script>
     <script src='js/controller/ServiceOrderController.js'></script>
+    <script src='js/controller/CompanyController.js'></script>
     <script>
       let serviceOrderIssuerView = new ServiceOrderIssuerView();
       let serviceOrderRegisterView = new ServiceOrderRegisterView();

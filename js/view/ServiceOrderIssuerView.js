@@ -1,15 +1,19 @@
 class ServiceOrderIssuerView {
 
+  constructor(mainView) {
+    this.mainView = mainView;
+  }
+
   show() {
+    this.mainView.clearMainContainer();
     this._getServiceOrders = new ServiceOrderController().getIssuerPendingServiceOrders();
-    this.mainContainerView = new MainContainerView();
     this._setupFilters();
   }
 
   _setupFilters() {
-    this.mainContainerView.createCurrentFilter("EM ANDAMENTO")
+    this.mainView.createCurrentFilter("EM ANDAMENTO")
       .addEventListener('click', () => this._loadInProgressOrders(), false);
-    this.mainContainerView.createFilter("PENDENTE")
+    this.mainView.createFilter("PENDENTE")
       .addEventListener('click', () => this._loadWaitingManagementOrders(), false);
   }
 
@@ -38,7 +42,7 @@ class ServiceOrderIssuerView {
           serviceOrderTr.appendChild(localTd);
           serviceOrderTr.appendChild(createdAt);
 
-          this.mainContainerView.serviceOrderTable.appendChild(serviceOrderTr);
+          this.mainView.serviceOrderTable.appendChild(serviceOrderTr);
         }
     });
   }

@@ -1,11 +1,26 @@
-class MainContainerView {
+class MainView {
+
   constructor() {
+    this._sideNavigator = document.getElementById('sideNavigator');
     this._mainContainer = document.getElementById('mainContainer');
     this.serviceOrderTable = document.createElement('table');
     document.getElementById('mainContainer').appendChild(this.serviceOrderTable);
     // trocar nome do elemento para mainFilterBox
     this._mainFilterBox = document.getElementById('filterBox');
     this._currentFilters = new Array();
+  }
+
+  clearMainContainer() {
+    this._mainFilterBox.innerHTML = ''
+    this.serviceOrderTable.innerHTML = '';
+    this._currentFilters = new Array();
+  }
+
+  createSideNavigatorAnchor(anchorText){
+    let manageAnchor = document.createElement('a');
+    manageAnchor.text = anchorText;
+    this._sideNavigator.appendChild(manageAnchor);
+    return manageAnchor;
   }
 
   createFilter(filterText){
@@ -41,6 +56,5 @@ class MainContainerView {
 
     selectedFilter.className = 'currentFilter';
   }
-
 
 }

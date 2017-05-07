@@ -22,14 +22,7 @@
     </nav>
 
     <section>
-      <div>
-        
-      </div>
-      <nav class="main-navigator" id='filterBox'>
-        <!--<div class="box"> <a id="inProgressFilter" class="currentFilter" >EM ANDAMENTO</a> </div>
-        <div class="box"> <a id="pendingFilter">PENDENTE</a> </div>
-        <div class="box"> <a id="finishedFilter">FINALIZADAS</a> </div>-->
-      </nav>
+      <nav class="filter-box" id='filterBox'></nav>
 
       <div class="main-container" id="mainContainer"></div>
 
@@ -51,14 +44,14 @@
 
     <script src='js/view/ServiceOrderRegisterView.js'></script>
     <script src='js/view/ServiceOrderIssuerView.js'></script>
-    <script src='js/view/UserView.js'></script>
-    <script src='js/view/MainContainerView.js'></script>
+    <script src='js/view/ApplicationView.js'></script>
+    <script src='js/view/MainView.js'></script>
     <script src='js/view/ServiceOrderManagerView.js'></script>
     <script src='js/controller/ServiceOrderController.js'></script>
     <script src='js/controller/UserController.js'></script>
     <script src='js/controller/CompanyController.js'></script>
     <script>
-      new UserView().loadApplicationView();
+      new ApplicationView().load();
     </script>
   </body>
 

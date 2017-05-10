@@ -11,8 +11,6 @@ class ApplicationView {
   }
 
   _handleLoggedUser(loggedUser) {
-    let serviceOrderRegisterView = new ServiceOrderRegisterView();
-
     let serviceOrderIssuerView = new ServiceOrderIssuerView(this.mainView);
     serviceOrderIssuerView.show();
 

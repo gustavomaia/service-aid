@@ -10,6 +10,7 @@ class ServiceOrderRegisterView {
     this._placeInput = document.getElementById('placeInput');
     this._contactPhoneInput = document.getElementById('contactPhoneInput');
     this._descriptionInput = document.getElementById('descriptionInput');
+    this._serviceOrderController = new ServiceOrderController();
 
     new CompanyController().getCompanyInfo().then(company => {
       this._companyNameInput.placeholder = company.name;
@@ -22,7 +23,7 @@ class ServiceOrderRegisterView {
     });
   }
 
-  newOS(event) {
+  saveNewOS(event) {
     event.preventDefault();
 
     let serviceOrder = {
@@ -32,11 +33,11 @@ class ServiceOrderRegisterView {
       description: this._descriptionInput.value
     }
 
-    new ServiceOrderController().postNewServiceOrder(serviceOrder)
+    this._serviceOrderController.postNewServiceOrder(serviceOrder)
       .then(serviceOrder => {
         console.log(serviceOrder)
         this._serviceOrderForm.reset();
-        this.hideNewServiceOrderModal();
+        this._hideNewServiceOrderModal();
       })
       .catch(error => {
         console.error(error);
@@ -44,7 +45,6 @@ class ServiceOrderRegisterView {
   }
 
   _showNewServiceOrderModal() {
-    console.log('teste');
     this._serviceOrderForm.style.display="inline";
     this._overlay.style.display="inline";
   }

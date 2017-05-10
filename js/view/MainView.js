@@ -5,7 +5,6 @@ class MainView {
     this._mainContainer = document.getElementById('mainContainer');
     this.serviceOrderTable = document.createElement('table');
     document.getElementById('mainContainer').appendChild(this.serviceOrderTable);
-    // trocar nome do elemento para mainFilterBox
     this._mainFilterBox = document.getElementById('filterBox');
     this._currentFilters = new Array();
   }

@@ -1,8 +1,17 @@
 class ServiceOrderController {
 
-  getIssuerPendingServiceOrders() {
+  getWaitingManagementServiceOrdersOf(userType) {
     return new Promise((resolve, reject) => {
-      new ServiceAidBackHttpRequest().getServiceOrders('issuer')
+      new ServiceAidBackHttpRequest().getServiceOrders(userType, 'waitingManagement')
+        .then(serviceOrders => {
+          resolve(JSON.parse(serviceOrders));
+        });
+    });
+  }
+
+  getInProgressServiceOrdersOf(userType) {
+    return new Promise((resolve, reject) => {
+      new ServiceAidBackHttpRequest().getServiceOrders(userType, 'inProgress')
         .then(serviceOrders => {
           resolve(JSON.parse(serviceOrders));
         });

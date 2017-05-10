@@ -26,14 +26,13 @@
 
       <div class="main-container" id="mainContainer"></div>
 
-      <form class="modal" id="newServiceOrderForm" onsubmit="serviceOrderRegisterView.newOS(event)" >
+      <form class="modal" id="newServiceOrderForm" onsubmit="serviceOrderRegisterView.saveNewOS(event)" >
         <h3>NOVA ORDEM DE SERVIÇO</h3>
         <input id="companyNameInput" disabled> <br/> <br/>
         <select id="categorySelect" title="Selecione uma categoria" required oninvalid="">
           <option value="" disabled selected>Selectione a categoria</option>
         </select> <br/><br/>
         <input id="placeInput" placeholder="Local" required> <br/> <br/>
-        <!--<input id="contactPhoneInput" placeholder="Telefone para contato" data-mask="(00) 0000-0000" data-mask-selectonfocus="true"> <br/> <br/>-->
         <input id="contactPhoneInput" placeholder="Telefone para contato" type="text" data-mask="(00) 0000-0000" data-mask-selectonfocus="true"> <br/> <br/>
         <textarea id="descriptionInput" placeholder="Descrição" ></textarea> <br/> <br/>
 
@@ -52,6 +51,7 @@
     <script src='js/controller/CompanyController.js'></script>
     <script>
       new ApplicationView().load();
+      let serviceOrderRegisterView = new ServiceOrderRegisterView();
     </script>
   </body>
 

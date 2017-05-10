@@ -46,6 +46,10 @@ td, th {
   padding: 8px;
 }
 
+td {
+  max-width: 50px;
+}
+
 tr:hover td {
   background-color: #F8F8F8;
   cursor: pointer;

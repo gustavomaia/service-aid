@@ -1,4 +1,4 @@
-class ServiceOrderManagerView {
+class ServiceOrderExecutorView {
 
   constructor(mainView) {
     this.mainView = mainView;
@@ -6,41 +6,43 @@ class ServiceOrderManagerView {
   }
 
   loadSideBarOptions() {
-    this.mainView.createSideNavigatorAnchor(`Gerenciar O.S's`)
-      .addEventListener('click', ()=>{this._loadMainContainer();this._showServiceOrdersToManage()}, true)
-      // .addEventListener('click', ()=>, false);
+    this.mainView.createSideNavigatorAnchor(`Executar O.S's`)
+      .addEventListener('click', ()=>this._loadMainContainer(), false);
   }
 
   _loadMainContainer() {
     this.mainView.clearMainContainer();
-    this.mainView.createCurrentFilter("GERENCIAR")
+    this.mainView.createCurrentFilter("EM ANDAMENTO")
       .addEventListener('click', () => this._showServiceOrdersToManage(), false);
-    // this._showServiceOrdersToManage();
+    this._showServiceOrdersInProgress();
   }
 
-  _showServiceOrdersToManage() {
-    this._serviceOrderController.getWaitingManagementServiceOrdersOf('manager')
+  _showServiceOrdersInProgress() {
+    this._serviceOrderController.getInProgressServiceOrdersOf('executor')
       .then(serviceOrders => {
-        for(let waitingManagement of serviceOrders) {
+        for(let inProgress of serviceOrders) {
           let serviceOrderTr = document.createElement('tr');
 
           let codeTd = document.createElement('td');
           let descriptionTd = document.createElement('td');
           let localTd = document.createElement('td');
+          let limitDateTd = document.createElement('td');
           let categoryTd = document.createElement('td');
           let issuerTd = document.createElement('td');
 
-          codeTd.textContent = waitingManagement.code;
-          descriptionTd.textContent = waitingManagement.description;
-          localTd.textContent = waitingManagement.place;
-          issuerTd.textContent = waitingManagement.Issuer.name;
-          categoryTd.textContent = waitingManagement.category.name;
+          codeTd.textContent = inProgress.code;
+          descriptionTd.textContent = inProgress.description;
+          localTd.textContent = inProgress.place;
+          limitDateTd.textContent = inProgress.limitDate;
+          issuerTd.textContent = inProgress.Issuer.name;
+          categoryTd.textContent = inProgress.category.name;
 
           serviceOrderTr.appendChild(codeTd);
           serviceOrderTr.appendChild(descriptionTd);
           serviceOrderTr.appendChild(localTd);
           serviceOrderTr.appendChild(issuerTd);
           serviceOrderTr.appendChild(categoryTd);
+          serviceOrderTr.appendChild(limitDateTd);
 
           this.mainView.serviceOrderTable.appendChild(serviceOrderTr);
         }

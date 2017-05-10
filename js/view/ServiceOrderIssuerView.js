@@ -10,6 +10,11 @@ class ServiceOrderIssuerView {
     this._setupFilters();
   }
 
+  loadSideBarOptions() {
+    this.mainView.createSideNavigatorAnchor(`Emissão`)
+      .addEventListener('click', ()=>this.show(), false);
+  }
+
   _setupFilters() {
     this.mainView.createCurrentFilter("EM ANDAMENTO")
       .addEventListener('click', () => this._loadInProgressOrders(), false);

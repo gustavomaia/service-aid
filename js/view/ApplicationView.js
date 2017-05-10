@@ -13,12 +13,12 @@ class ApplicationView {
   _handleLoggedUser(loggedUser) {
     let serviceOrderIssuerView = new ServiceOrderIssuerView(this.mainView);
     serviceOrderIssuerView.show();
-
+      
     if (loggedUser.type == 'manager') {
-      this.mainView.createSideNavigatorAnchor(`Emissão`)
-        .addEventListener('click', ()=>serviceOrderIssuerView.show(), false);
-
+      serviceOrderIssuerView.loadSideBarOptions();
+      new ServiceOrderExecutorView(this.mainView).loadSideBarOptions();
       new ServiceOrderManagerView(this.mainView).loadSideBarOptions();
     }
   }
+
 }

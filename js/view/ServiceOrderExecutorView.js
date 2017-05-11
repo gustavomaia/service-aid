@@ -45,7 +45,6 @@ class ServiceOrderExecutorView {
           serviceOrderTr.appendChild(limitDateTd);
 
           serviceOrderTr.addEventListener('click', ()=>detailedServiceOrderView.show(inProgress.code), false);
-          // serviceOrderTr.addEventListener('mouseenter', function(){this.style.height="60px", console.log(this)}, false);
           this.mainView.serviceOrderTable.appendChild(serviceOrderTr);
         }
     });

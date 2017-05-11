@@ -9,6 +9,7 @@ class ServiceOrderRegisterView {
     this._placeInput = document.getElementById('placeInput');
     this._contactPhoneInput = document.getElementById('contactPhoneInput');
     this._descriptionInput = document.getElementById('descriptionInput');
+    this._overlay.addEventListener('click', ()=>this._hideNewServiceOrderModal(), true);
     this._serviceOrderController = new ServiceOrderController();
 
     new CompanyController().getCompanyInfo().then(company => {
@@ -46,7 +47,6 @@ class ServiceOrderRegisterView {
   _showNewServiceOrderModal() {
     this._serviceOrderForm.style.display="inline";
     this._overlay.style.display="inline";
-    this._overlay.addEventListener('click', ()=>this._hideNewServiceOrderModal(), true);
   }
 
   _hideNewServiceOrderModal() {

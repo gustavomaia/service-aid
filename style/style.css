@@ -54,13 +54,11 @@ td {
 tr {
   height: 50px;
   width: 100%;
-  padding-left: 0px;
   transition: 0.3s ease-out;
 }
 
 tr:hover {
   cursor: pointer;
-  padding-left: 20px;
   height: 62px;
 }
 
@@ -162,12 +160,11 @@ tr:nth-child(even) {
   box-shadow: 0px 0px 15px rgba(84, 82, 84, 0.2);
 }
 
-.modal {
+.modalNewOS {
   background-color: #FFF;
   padding: 30px;
   width: 460px;
   height: auto;
-  /*border-radius: 40px;*/
   max-height: calc(100% - 100px);
   position: fixed;
   top: 50%;
@@ -176,12 +173,12 @@ tr:nth-child(even) {
   z-index: 3;
 }
 
-.modal h3 {
+.modalNewOS h3 {
   font-family: quickSand-bold;
   font-size: 14px;
 }
 
-.modal input, select {
+.modalNewOS input, select {
   width: 100%;
   color: #9B9B9B;
   font-size: 12px;
@@ -194,7 +191,7 @@ tr:nth-child(even) {
   outline: none;
 }
 
-.modal textarea {
+.modalNewOS textarea {
   font-size: 12px;
   font-family: quickSand;
   color: #9B9B9B;
@@ -210,9 +207,91 @@ tr:nth-child(even) {
   border: 0;
 }
 
-.modal .actionButton {
+.modalNewOS .actionButton {
   width: 80px;
   box-shadow: 0.6px 1.2px 4px #140617;
+}
+
+.modalDetailedOS {
+  background-color: #FFF;
+  /*margin-left: 30px;*/
+  /*padding: 30px;*/
+  width: 904px;
+  height: 600px;
+  max-height: calc(100% - 100px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.modalDetailedOS h3 {
+  margin-left: 30px;
+  margin-top: 21px;
+  font-family: quickSand-bold;
+	font-size: 16px;
+	color: #737a8d;
+}
+
+.chatContainer {
+  width: 300px;
+	height: 100%;
+  position: absolute;
+  right: 0%;
+	background-color: #f1f0f1;
+}
+
+.chatContainer h3 {
+  margin-top: 83px;
+  margin-left: 65px;
+  font-family: quickSand-bold;
+}
+
+.chatContainer img {
+  margin-top: 80px;
+  margin-left: 20px;
+  position: fixed;
+}
+
+.chatConversation {
+  border-top: 3px solid rgba(64, 64, 65, 0.1);
+  height: 380px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: auto;
+  position: fixed;
+}
+
+.chatConversation dt {
+  font-family: quickSand-bold;
+  margin-top: 18px;
+  font-size: 12px;
+  left: 0px
+}
+
+.chatConversation dd {
+  margin-top: 12px;
+  margin-left: 0px;
+  font-size: 14px;
+}
+
+.chatContainer textarea {
+  bottom: 0%;
+  margin: 10px;
+  font-family: quickSand;
+  font-size: 14px;
+  color: #9B9B9B;
+  text-indent: 10px;
+  padding-top: 10px;
+  background-color: #ffffff;
+  height: 60px;
+  width: 276px;
+  max-width: 280px;
+  max-height: 60px;
+  position: fixed;
+  outline: none;
+  border: 0;
 }
 
 .overlay {
@@ -225,6 +304,6 @@ tr:nth-child(even) {
   z-index: 2;
 }
 
-.modal, .overlay {
+.modalNewOS, .modalDetailedOS, .overlay {
   display: none;
 }

@@ -26,7 +26,7 @@
 
       <div class="main-container" id="mainContainer"></div>
 
-      <form class="modal" id="newServiceOrderForm" onsubmit="serviceOrderRegisterView.saveNewOS(event)" >
+      <form class="modalNewOS" id="newServiceOrderForm" onsubmit="serviceOrderRegisterView.saveNewOS(event)" >
         <h3>NOVA ORDEM DE SERVIÇO</h3>
         <input id="companyNameInput" disabled> <br/> <br/>
         <select id="categorySelect" title="Selecione uma categoria" required oninvalid="">
@@ -38,8 +38,28 @@
 
         <button class="actionButton" type="submit" width=20px >ENVIAR</button>
       </form>
-      <div class="modal" id="detailedServiceOrderModal" >
-        teste
+      <div class="modalDetailedOS" id="detailedServiceOrderModal" >
+        <header> 
+          <h3>AQUI VAI O NOME DA ORDEM DE SERVIÇO</h3>
+        </header>
+        <div class="chatContainer">
+            <img src="images/icon-conversa.png">
+            <h3>Conversa</h3>
+          <div class="chatConversation">
+            <dl>
+              <dt class="author">Gustavo</dt>
+              <dd class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
+              <dt class="author">Maria</dt>
+              <dd class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
+              <dt class="author">Gustavo</dt>
+              <dd class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
+              <dt class="author">Maria</dt>
+              <dd class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
+            </dl>
+          </div>
+
+          <textarea id="descriptionInput" placeholder="Escreva uma mensagem..." ></textarea>
+        </div>
       </div>
       <div class="overlay" id="overlay"  ></div>
     </section>

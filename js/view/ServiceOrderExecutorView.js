@@ -13,7 +13,7 @@ class ServiceOrderExecutorView {
   _loadMainContainer() {
     this.mainView.clearMainContainer();
     this.mainView.createCurrentFilter("EM ANDAMENTO")
-      .addEventListener('click', () => this._showServiceOrdersToManage(), false);
+      .addEventListener('click', () => this._showServiceOrdersInProgress(), false);
     this._showServiceOrdersInProgress();
   }
 
@@ -44,6 +44,8 @@ class ServiceOrderExecutorView {
           serviceOrderTr.appendChild(categoryTd);
           serviceOrderTr.appendChild(limitDateTd);
 
+          serviceOrderTr.addEventListener('click', ()=>detailedServiceOrderView.show(inProgress.code), false);
+          // serviceOrderTr.addEventListener('mouseenter', function(){this.style.height="60px", console.log(this)}, false);
           this.mainView.serviceOrderTable.appendChild(serviceOrderTr);
         }
     });

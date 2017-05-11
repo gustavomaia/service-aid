@@ -38,12 +38,16 @@
 
         <button class="actionButton" type="submit" width=20px >ENVIAR</button>
       </form>
-      <div class="overlay" id="newServiceOrderOverlay"  ></div>
+      <div class="modal" id="detailedServiceOrderModal" >
+        teste
+      </div>
+      <div class="overlay" id="overlay"  ></div>
     </section>
 
     <script src='js/view/ServiceOrderRegisterView.js'></script>
     <script src='js/view/ServiceOrderIssuerView.js'></script>
     <script src='js/view/ServiceOrderExecutorView.js'></script>
+    <script src='js/view/DetailedServiceOrderView.js'></script>
     <script src='js/view/ApplicationView.js'></script>
     <script src='js/view/MainView.js'></script>
     <script src='js/view/ServiceOrderManagerView.js'></script>
@@ -53,6 +57,7 @@
     <script>
       new ApplicationView().load();
       let serviceOrderRegisterView = new ServiceOrderRegisterView();
+      let detailedServiceOrderView = new DetailedServiceOrderView();
     </script>
   </body>
 

@@ -41,18 +41,27 @@ table {
 }
 
 td, th {
-  border: 1px solid #FAF9FB;
   text-align: left;
-  padding: 8px;
+  padding-top: 17px;
+  padding-left: 20px;
+  padding-bottom: 17px;
 }
 
 td {
   max-width: 50px;
 }
 
-tr:hover td {
-  background-color: #F8F8F8;
+tr {
+  height: 50px;
+  width: 100%;
+  padding-left: 0px;
+  transition: 0.3s ease-out;
+}
+
+tr:hover {
   cursor: pointer;
+  padding-left: 20px;
+  height: 62px;
 }
 
 tr:nth-child(even) {
@@ -155,14 +164,16 @@ tr:nth-child(even) {
 
 .modal {
   background-color: #FFF;
-  height: auto;
   padding: 30px;
-  width: 450px;
+  width: 460px;
+  height: auto;
+  /*border-radius: 40px;*/
+  max-height: calc(100% - 100px);
   position: fixed;
-  top: 20%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
-
 }
 
 .modal h3 {
@@ -175,7 +186,6 @@ tr:nth-child(even) {
   color: #9B9B9B;
   font-size: 12px;
   font-family: quickSand;
-  font-color: #9B9B9B;
   text-indent: 10px;
   background-color: #F0EFF1;
   height: 40px;

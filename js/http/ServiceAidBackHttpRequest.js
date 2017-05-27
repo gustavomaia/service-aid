@@ -27,8 +27,20 @@ class ServiceAidBackHttpRequest {
     return this.httpRequest.doPost('/login', data)
   }
 
+  postMessage(serviceOrderCode, message) {
+    let data = {
+      content: JSON.stringify(message),
+      contentType: 'application/json'
+    }
+    return this.httpRequest.doPost(`/service-order/${serviceOrderCode}/message`, data)
+  }
+
   getServiceOrders(userType, status) {
     return this.httpRequest.doGet(`/service-order/${userType}/${status}`)
+  }
+
+  getServiceOrder(serviceOrderCode) {
+    return this.httpRequest.doGet(`/service-order/${serviceOrderCode}`);
   }
 
   getCompanyInfo() {

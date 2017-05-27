@@ -40,25 +40,30 @@
       </form>
       <div class="modalDetailedOS" id="detailedServiceOrderModal" >
         <header> 
-          <h3>AQUI VAI O NOME DA ORDEM DE SERVIÇO</h3>
+          <h3 id="detailedOSModalNumber"></h3>
         </header>
+        <div class="detailedOS">
+          <!--<div class="detailedOSCompany">
+            <div id="detailedOSCompanyTitle" class="title"></div>
+          </div>-->
+          <div class="detailedOSDescription">
+            <div class="title">Descrição</div>
+            <div id="detailedOSDescription" class="description"></div>
+          </div>
+          <div id="detailedOSInvolveds" class="detailedOSInvolveds">
+            <div class="title">Envolvidos</div>
+            <div id="detailedOSIssuer" class="peopleName"></div>
+            <div id="detailedOSExecutor" class="peopleName"></div>
+          </div>
+        </div>
         <div class="chatContainer">
             <img src="images/icon-conversa.png">
             <h3>Conversa</h3>
           <div class="chatConversation">
-            <dl>
-              <dt class="author">Gustavo</dt>
-              <dd class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
-              <dt class="author">Maria</dt>
-              <dd class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
-              <dt class="author">Gustavo</dt>
-              <dd class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
-              <dt class="author">Maria</dt>
-              <dd class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
-            </dl>
+            <dl id="chatConversation"></dl>
           </div>
 
-          <textarea id="descriptionInput" placeholder="Escreva uma mensagem..." ></textarea>
+          <textarea id="chatMessageInput" placeholder="Escreva uma mensagem..." onkeyup="detailedServiceOrderView.sendMessage(event)"></textarea>
         </div>
       </div>
       <div class="overlay" id="overlay"  ></div>

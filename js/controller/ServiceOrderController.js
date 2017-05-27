@@ -9,6 +9,15 @@ class ServiceOrderController {
     });
   }
 
+getServiceOrder(serviceOrderCode) {
+  return new Promise((resolve, reject) => {
+    new ServiceAidBackHttpRequest().getServiceOrder(serviceOrderCode)
+      .then(serviceOrder => {
+        resolve(JSON.parse(serviceOrder));
+      })
+  })
+}
+
   getInProgressServiceOrdersOf(userType) {
     return new Promise((resolve, reject) => {
       new ServiceAidBackHttpRequest().getServiceOrders(userType, 'inProgress')
@@ -16,6 +25,15 @@ class ServiceOrderController {
           resolve(JSON.parse(serviceOrders));
         });
     });
+  }
+
+  sendMessage(serviceOrderCode, message) {
+    return new Promise((resolve, reject) => {
+      new ServiceAidBackHttpRequest().postMessage(serviceOrderCode, message)
+        .then(newMessage=>{
+          resolve(JSON.parse(newMessage));
+        })
+    })
   }
 
   postNewServiceOrder(serviceOrder) {

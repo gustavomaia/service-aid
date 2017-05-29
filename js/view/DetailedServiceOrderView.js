@@ -53,7 +53,7 @@ class DetailedServiceOrderView {
             this._chatConversation.appendChild(ddMessage);
             ddMessage.scrollIntoView();
           });
-        
+
       }
 
       this._descriptionInput.value = '';

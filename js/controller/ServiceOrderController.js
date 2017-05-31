@@ -36,6 +36,15 @@ getServiceOrder(serviceOrderCode) {
     })
   }
 
+  finishOS(serviceOrderCode) {
+    return new Promise((resolve, reject) => {
+      new ServiceAidBackHttpRequest().finishOS(serviceOrderCode)
+        .then(()=>{
+          resolve();
+        })
+    })
+  }
+
   postNewServiceOrder(serviceOrder) {
     return new Promise((resolve, reject) => {
       new ServiceAidBackHttpRequest().postNewOS(serviceOrder)

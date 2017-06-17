@@ -44,7 +44,7 @@ class ServiceOrderExecutorView {
           serviceOrderTr.appendChild(categoryTd);
           serviceOrderTr.appendChild(limitDateTd);
 
-          serviceOrderTr.addEventListener('click', ()=>detailedServiceOrderView.show(inProgress.code, serviceOrderTr), false);
+          serviceOrderTr.addEventListener('click', ()=>detailedServiceOrderView.showForExecution(inProgress.code, serviceOrderTr), false);
           this.mainView.serviceOrderTable.appendChild(serviceOrderTr);
         }
     });

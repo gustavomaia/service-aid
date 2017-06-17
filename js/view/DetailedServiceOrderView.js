@@ -14,7 +14,7 @@ class DetailedServiceOrderView {
     this._serviceOrderController = new ServiceOrderController();
   }
 
-  show(serviceOrderCode, view) {
+  show(serviceOrderCode) {
     this._serviceOrderController.getServiceOrder(serviceOrderCode).then(serviceOrders => {
       let serviceOrder = serviceOrders[0];
       this._detailedOSModalNumber.textContent = serviceOrder.code;
@@ -36,24 +36,26 @@ class DetailedServiceOrderView {
       this._detailedServiceOrderModal.style.display="inline";
       this._overlay.style.display="inline";
 
-      if (view) {
-        let executorButton = document.createElement('button');
-        executorButton.type = 'submit';
-        executorButton.textContent = 'Finalizar';
-        executorButton.addEventListener('click', ()=>{
-          this._serviceOrderController.finishOS(this._detailedOSModalNumber.textContent).then(()=>{
-          view.parentNode.deleteRow(view.rowIndex);
-          this._hideDetailedServiceOrderModal();
-        });
-
-        }, false);
-
-        this.detailedOSHeader.appendChild(executorButton);
-      }
-
       messageToFocus.scrollIntoView();
       this._descriptionInput.focus();
     })
+  }
+
+  showForExecution(serviceOrderCode, view) {
+    this.show(serviceOrderCode);
+
+    let executorButton = document.createElement('button');
+    executorButton.type = 'submit';
+    executorButton.textContent = 'Finalizar';
+    executorButton.addEventListener('click', ()=>{
+      this._serviceOrderController.finishOS(this._detailedOSModalNumber.textContent).then(()=>{
+      view.parentNode.deleteRow(view.rowIndex);
+      this._hideDetailedServiceOrderModal();
+    });
+
+    }, false);
+
+    this.detailedOSHeader.appendChild(executorButton);
   }
 
   sendMessage(event) {

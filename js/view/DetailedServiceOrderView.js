@@ -20,7 +20,7 @@ class DetailedServiceOrderView {
       this._detailedOSModalNumber.textContent = serviceOrder.code;
       this._detailedOSDescription.textContent = serviceOrder.description;
       this._detailedOSIssuer.textContent = serviceOrder.Issuer.name;
-      this._detailedOSExecutor.textContent = serviceOrder.Executor.name;
+      if (serviceOrder.Executor) this._detailedOSExecutor.textContent = serviceOrder.Executor.name;
 
       let messageToFocus;
       serviceOrder.messages.forEach(message => {
@@ -56,6 +56,23 @@ class DetailedServiceOrderView {
     }, false);
 
     this.detailedOSHeader.appendChild(executorButton);
+  }
+
+  showForManagement(serviceOrderCode, view) {
+    this.show(serviceOrderCode);
+
+    let managementButton = document.createElement('button');
+    managementButton.type = 'submit';
+    managementButton.textContent = 'Gerenciar';
+    // managementButton.addEventListener('click', ()=>{
+    //   this._serviceOrderController.finishOS(this._detailedOSModalNumber.textContent).then(()=>{
+    //   view.parentNode.deleteRow(view.rowIndex);
+    //   this._hideDetailedServiceOrderModal();
+    // });
+
+    // }, false);
+
+    this.detailedOSHeader.appendChild(managementButton);
   }
 
   sendMessage(event) {

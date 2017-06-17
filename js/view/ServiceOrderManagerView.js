@@ -42,6 +42,8 @@ class ServiceOrderManagerView {
           serviceOrderTr.appendChild(issuerTd);
           serviceOrderTr.appendChild(categoryTd);
 
+          serviceOrderTr.addEventListener('click', ()=>detailedServiceOrderView.showForManagement(waitingManagement.code, serviceOrderTr), false);
+
           this.mainView.serviceOrderTable.appendChild(serviceOrderTr);
         }
     });

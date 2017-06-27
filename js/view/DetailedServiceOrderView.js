@@ -78,7 +78,11 @@ class DetailedServiceOrderView {
     this._limitDate.type='date';
 
     this._managementButton.addEventListener('click', ()=>{
-      this._serviceOrderController.manageOS(this._detailedOSModalNumber.textContent).then(()=>{
+      let managementData = {
+        limitDate: this._limitDate.value,
+        executorId: this._executorSelect.item(this._executorSelect.selectedIndex).value,
+      }
+      this._serviceOrderController.manageOS(this._detailedOSModalNumber.textContent, managementData).then(()=>{
         view.parentNode.deleteRow(view.rowIndex);
         this._hideDetailedServiceOrderModal();
       });

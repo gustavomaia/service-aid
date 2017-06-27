@@ -54,6 +54,15 @@ getServiceOrder(serviceOrderCode) {
     })
   }
 
+  getExecutors() {
+    return new Promise(resolve => {
+      new ServiceAidBackHttpRequest().getExecutors()
+        .then(executors => {
+          resolve(JSON.parse(executors))
+        })
+    })
+  }
+
   postNewServiceOrder(serviceOrder) {
     return new Promise((resolve, reject) => {
       new ServiceAidBackHttpRequest().postNewOS(serviceOrder)

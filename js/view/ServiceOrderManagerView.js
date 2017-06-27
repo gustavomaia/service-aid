@@ -2,7 +2,17 @@ class ServiceOrderManagerView {
 
   constructor(mainView) {
     this.mainView = mainView;
+    this._executorSelect = document.getElementById('executorSelect');
     this._serviceOrderController = new ServiceOrderController();
+
+    this._serviceOrderController.getExecutors().then(executors => {
+      executors.forEach(executor => {
+        let executorOption = document.createElement('option');
+        executorOption.text = executor.name;
+        executorOption.value = executor.id;
+        this._executorSelect.appendChild(executorOption);
+      });
+    });
   }
 
   loadSideBarOptions() {

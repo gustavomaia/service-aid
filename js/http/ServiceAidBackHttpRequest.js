@@ -65,4 +65,8 @@ class ServiceAidBackHttpRequest {
     return this.httpRequest.doGet('/company')
   }
 
+  getExecutors() {
+    return this.httpRequest.doGet('/executors')
+  }
+
 }

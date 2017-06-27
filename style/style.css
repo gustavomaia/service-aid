@@ -189,7 +189,6 @@ tr:nth-child(even) {
   border-radius: 30px;
   border: 0;
   outline: none;
-  visibility: hidden;
 }
 
 .modalNewOS textarea {
@@ -261,6 +260,7 @@ tr:nth-child(even) {
   background-color: #ffffff;
   font-size: 14px;
   outline: none;
+  visibility: hidden;
 }
 
 .modalDetailedOS button {

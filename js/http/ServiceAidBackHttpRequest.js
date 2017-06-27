@@ -44,6 +44,15 @@ class ServiceAidBackHttpRequest {
     return this.httpRequest.doPost(`/service-order/${serviceOrderCode}/finish`, data)
   }
 
+  manageOS(serviceOrderCode, managementData) {
+    let data = {
+      content: "implement",
+      contentType: 'application/json'
+    }
+
+    return this.httpRequest.doPost(`/service-order/${serviceOrderCode}/manage`, data)
+  }
+
   getServiceOrders(userType, status) {
     return this.httpRequest.doGet(`/service-order/${userType}/${status}`)
   }

@@ -11,6 +11,10 @@ class DetailedServiceOrderView {
     this._detailedOSExecutor = document.getElementById('detailedOSExecutor');
     this._detailedOSDescription = document.getElementById('detailedOSDescription');
     this.detailedOSHeader = document.getElementById('detailedOSHeader');
+    this._executorSelect = document.getElementById('executorSelect');
+    this._executorButton;
+    this._managementButton;
+    this._limitDate;
     this._serviceOrderController = new ServiceOrderController();
   }
 
@@ -44,10 +48,11 @@ class DetailedServiceOrderView {
   showForExecution(serviceOrderCode, view) {
     this.show(serviceOrderCode);
 
-    let executorButton = document.createElement('button');
-    executorButton.type = 'submit';
-    executorButton.textContent = 'Finalizar';
-    executorButton.addEventListener('click', ()=>{
+    this._executorButton = document.createElement('button');
+    this._executorButton.id = 'finishOSBtn'
+    this._executorButton.type = 'submit';
+    this._executorButton.textContent = 'Finalizar';
+    this._executorButton.addEventListener('click', ()=>{
       this._serviceOrderController.finishOS(this._detailedOSModalNumber.textContent).then(()=>{
       view.parentNode.deleteRow(view.rowIndex);
       this._hideDetailedServiceOrderModal();
@@ -55,24 +60,32 @@ class DetailedServiceOrderView {
 
     }, false);
 
-    this.detailedOSHeader.appendChild(executorButton);
+    this.detailedOSHeader.appendChild(this._executorButton);
   }
 
   showForManagement(serviceOrderCode, view) {
     this.show(serviceOrderCode);
 
-    let managementButton = document.createElement('button');
-    managementButton.type = 'submit';
-    managementButton.textContent = 'Gerenciar';
-    // managementButton.addEventListener('click', ()=>{
-    //   this._serviceOrderController.finishOS(this._detailedOSModalNumber.textContent).then(()=>{
-    //   view.parentNode.deleteRow(view.rowIndex);
-    //   this._hideDetailedServiceOrderModal();
-    // });
+    this._executorSelect.style.visibility = 'visible';
 
-    // }, false);
+    this._managementButton = document.createElement('button');
+    this._managementButton.id = 'manageOSBtn';
+    this._managementButton.type = 'submit';
+    this._managementButton.textContent = 'Gerenciar';
 
-    this.detailedOSHeader.appendChild(managementButton);
+    this._limitDate = document.createElement('input');
+    this._limitDate.id = 'osLimitDate';
+    this._limitDate.type='date';
+
+    this._managementButton.addEventListener('click', ()=>{
+      this._serviceOrderController.manageOS(this._detailedOSModalNumber.textContent).then(()=>{
+        view.parentNode.deleteRow(view.rowIndex);
+        this._hideDetailedServiceOrderModal();
+      });
+    }, false);
+
+    this.detailedOSHeader.appendChild(this._managementButton);
+    this.detailedOSHeader.appendChild(this._limitDate);
   }
 
   sendMessage(event) {
@@ -101,6 +114,10 @@ class DetailedServiceOrderView {
     this._detailedServiceOrderModal.style.display="none";
     this._overlay.style.display="none";
     this._chatConversation.innerHTML = "";
+    if (this._executorButton) this._executorButton.remove();
+    if (this._managementButton) this._managementButton.remove();
+    if (this._limitDate) this._limitDate.remove();
+    this._executorSelect.style.visibility = 'hidden';
   }
 
 }

@@ -45,6 +45,15 @@ getServiceOrder(serviceOrderCode) {
     })
   }
 
+  manageOS(serviceOrderCode, data) {
+    return new Promise((resolve, reject) => {
+      new ServiceAidBackHttpRequest().manageOS(serviceOrderCode, data)
+        .then(()=>{
+          resolve();
+        })
+    })
+  }
+
   postNewServiceOrder(serviceOrder) {
     return new Promise((resolve, reject) => {
       new ServiceAidBackHttpRequest().postNewOS(serviceOrder)

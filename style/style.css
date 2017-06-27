@@ -189,6 +189,7 @@ tr:nth-child(even) {
   border-radius: 30px;
   border: 0;
   outline: none;
+  visibility: hidden;
 }
 
 .modalNewOS textarea {
@@ -230,6 +231,36 @@ tr:nth-child(even) {
   font-family: quickSand-bold;
 	font-size: 16px;
 	color: #737a8d;
+}
+
+.modalDetailedOS input {
+  right: 0px;
+  width: 130px;
+  height: 30px;
+  position: fixed;
+  top: 0px;
+  margin-top: 13px;
+  margin-right: 150px;
+  border-radius: 50px;
+  border: solid 1px #877BA5;
+  background-color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+
+.modalDetailedOS select {
+  right: 0px;
+  width: 180px;
+  height: 30px;
+  position: fixed;
+  top: 0px;
+  margin-top: 13px;
+  margin-right: 310px;
+  border-radius: 50px;
+  border: solid 1px #877BA5;
+  background-color: #ffffff;
+  font-size: 14px;
+  outline: none;
 }
 
 .modalDetailedOS button {

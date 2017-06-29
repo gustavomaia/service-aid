@@ -9,18 +9,27 @@ class ServiceOrderController {
     });
   }
 
-getServiceOrder(serviceOrderCode) {
-  return new Promise((resolve, reject) => {
-    new ServiceAidBackHttpRequest().getServiceOrder(serviceOrderCode)
-      .then(serviceOrder => {
-        resolve(JSON.parse(serviceOrder));
-      })
-  })
-}
+  getServiceOrder(serviceOrderCode) {
+    return new Promise((resolve, reject) => {
+      new ServiceAidBackHttpRequest().getServiceOrder(serviceOrderCode)
+        .then(serviceOrder => {
+          resolve(JSON.parse(serviceOrder));
+        })
+    })
+  }
 
   getInProgressServiceOrdersOf(userType) {
     return new Promise((resolve, reject) => {
       new ServiceAidBackHttpRequest().getServiceOrders(userType, 'inProgress')
+        .then(serviceOrders => {
+          resolve(JSON.parse(serviceOrders));
+        });
+    });
+  }
+
+  getFinishedServiceOrdersOf(userType) {
+    return new Promise((resolve, reject) => {
+      new ServiceAidBackHttpRequest().getServiceOrders(userType, 'finished')
         .then(serviceOrders => {
           resolve(JSON.parse(serviceOrders));
         });

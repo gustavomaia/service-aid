@@ -21,6 +21,8 @@ class ServiceOrderIssuerView {
       .addEventListener('click', () => this._loadInProgressOrders(), false);
     this.mainView.createFilter("PENDENTE")
       .addEventListener('click', () => this._loadWaitingManagementOrders(), false);
+    this.mainView.createFilter("FINALIZADAS")
+      .addEventListener('click', () => this._loadFinishedOrders(), false);
   }
 
   _loadInProgressOrders() {
@@ -82,6 +84,34 @@ class ServiceOrderIssuerView {
   }
 
   _loadFinishedOrders() {
+    this._serviceOrderController.getFinishedServiceOrdersOf('issuer')
+      .then(serviceOrders => {
+        for(let finished of serviceOrders) {
+          let serviceOrderTr = document.createElement('tr');
+
+          let codeTd = document.createElement('td');
+          let descriptionTd = document.createElement('td');
+          let localTd = document.createElement('td');
+          let categoryTd = document.createElement('td');
+          let issuerTd = document.createElement('td');
+
+          codeTd.textContent = finished.code;
+          descriptionTd.textContent = finished.description;
+          localTd.textContent = finished.place;
+          issuerTd.textContent = finished.Issuer.name;
+          categoryTd.textContent = finished.category.name;
+
+          serviceOrderTr.appendChild(codeTd);
+          serviceOrderTr.appendChild(descriptionTd);
+          serviceOrderTr.appendChild(localTd);
+          serviceOrderTr.appendChild(issuerTd);
+          serviceOrderTr.appendChild(categoryTd);
+          serviceOrderTr.appendChild(limitDateTd);
+
+          serviceOrderTr.addEventListener('click', ()=>detailedServiceOrderView.show(finished.code), false);
+          this.mainView.serviceOrderTable.appendChild(serviceOrderTr);
+        }
+    });
   }
 
 }

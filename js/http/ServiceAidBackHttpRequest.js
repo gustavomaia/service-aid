@@ -46,7 +46,7 @@ class ServiceAidBackHttpRequest {
 
   manageOS(serviceOrderCode, managementData) {
     let data = {
-      content: "implement",
+      content: JSON.stringify(managementData),
       contentType: 'application/json'
     }
 

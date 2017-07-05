@@ -79,7 +79,7 @@ class DetailedServiceOrderView {
 
     this._managementButton.addEventListener('click', ()=>{
       let managementData = {
-      limitDate: this._limitDate.value,
+        limitDate: this._limitDate.value,
         executorId: this._executorSelect.item(this._executorSelect.selectedIndex).value,
       }
       this._serviceOrderController.manageOS(this._detailedOSModalNumber.textContent, managementData).then(()=>{
